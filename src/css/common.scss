@@ -1,0 +1,96 @@
+.Header {
+  display: flex;
+  align-items: center;
+  height: 100px;
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    display: flex;
+    align-items: center;
+    font-size: 0;
+  }
+}
+
+.GlobalGnb {
+  & > ul {
+    display: flex;
+    gap: 40px;
+
+    & > li {
+      line-height: 100px;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      inset: 100px auto auto 50%;
+      transform: translate(-50%, -20px);
+      line-height: 40px;
+      background: #f7f7f7;
+
+      width: 150px;
+      text-align: center;
+      border: 3px solid #ddd;
+
+      li ~ li {
+        border-top: 1px solid #ddd;
+      }
+    }
+
+    & > li {
+      position: relative;
+
+      &:hover ul {
+        display: block;
+      }
+
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+.MainSlider {
+  .slick-track,
+  .slick-list {
+    transition-delay: 30ms;
+  }
+
+  .itm {
+    height: 600px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .inner {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 1px #f7f7f7;
+
+    h2 {
+      font-size: 50px;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+    }
+  }
+
+  @for $i from 1 to 4 {
+    @if ($i==2) {
+      .itm02 {
+        color: #333;
+      }
+    }
+
+    .itm0#{$i} {
+      background-image: url(../../public/assets/mainvisual0#{$i}.jpg);
+    }
+  }
+}
